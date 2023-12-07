@@ -4,18 +4,18 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import com.projeck.blackjack.model.BlackjackDto;
+import com.projeck.blackjack.model.CardDto;
 
 public class CardService {
 	String suit = "♣,◆,♠,♥";
 	String value = "A,2,3,4,5,6,7,8,9,10,K,Q,J";
-	private List<BlackjackDto> deckList;
+	private List<CardDto> deckList;
 
 	public CardService() {
-		this.deckList = new ArrayList<BlackjackDto>();
+		this.deckList = new ArrayList<CardDto>();
 	}
 
-	public List<BlackjackDto> getDeck() {
+	public List<CardDto> getDeck() {
 		return this.deckList;
 	}
 
@@ -37,8 +37,8 @@ public class CardService {
 
 				}
 				Collections.shuffle(deckList);
-				
-				BlackjackDto blackjack = new BlackjackDto();
+
+				CardDto blackjack = new CardDto();
 				blackjack.setCardSuit(suit);
 				blackjack.setDenomination(value);
 				blackjack.setValue(intValue);
@@ -46,5 +46,11 @@ public class CardService {
 
 			}
 		}
+	}
+
+	public CardDto getRandomCard() {
+		int size = deckList.size();
+		int select = (int) (Math.random() * size);
+		return deckList.get(select);
 	}
 }

@@ -1,6 +1,6 @@
 package com.projeck.blackjack.model;
 
-public class BlackjackDto {
+public class CardDto {
 	private String cardDeck;
 	private String denomination;
 	private String cardSuit;
