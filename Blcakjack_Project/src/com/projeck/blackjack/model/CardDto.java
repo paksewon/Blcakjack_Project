@@ -3,7 +3,7 @@ package com.projeck.blackjack.model;
 public class CardDto {
 	private String cardDeck;
 	private String denomination;
-	private String cardSuit;
+	private String cardSuit; // 카드 모양 Suit
 	private int value;
 
 	public int getValue() {
