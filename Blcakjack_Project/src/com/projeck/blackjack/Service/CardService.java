@@ -10,7 +10,7 @@ import com.projeck.blackjack.model.CardDto;
 
 public class CardService {
 	String suit = "클로버(♣),다이아몬드(◆),스페이드(♠),하트(♥)";
-	String value = "A,2,3,4,5,6,7,8,9,10,K,Q,J";
+	String value = "A,2,3,4,5,6,7,8,9,10,K,Q,J"; // 문자들은 이샙션이 일어나는데 그걸 역으로 이용하자
 	String[] arrSuit = new String[] {
 			"클로버(♣)",
 			"다이아몬드(◆)",
@@ -48,21 +48,31 @@ public class CardService {
 				
 				int intValue = 0;
 				try {
-					intValue = Integer.valueOf(value);
+					// 숫자 2~9~0 까지는 각각 값들이 정수로
+					// 정상 변환 될것이다
+					// 문자들은 익셉션 발생 캐치 다음 문장이 실행된다
+					intValue = Integer.valueOf(value); // 숫자로 바꿔준다
+					if(intValue == 0) intValue = 10; // 10으로 세팅해야 밸류 값이 정상적으로 실행
 				} catch (Exception e) {
 					if (value.equals("A")) {
 						intValue = 1;
 					} else
-						intValue = 10;
+						intValue = 10; // 나머지 밸류는 10으로 세팅
 
 				}
-				Collections.shuffle(deckList);
-
-				CardDto blackjack = new CardDto();
-				blackjack.setCardSuit(suit);
-				blackjack.setDenomination(value);
-				blackjack.setValue(intValue);
-				deckList.add(blackjack);
+				
+				CardDto dto = new CardDto();
+				dto.setCardSuit(suit);
+				dto.setDenomination(value);// int 밸루 값
+				dto.setValue(intValue);
+				
+//				Collections.shuffle(deckList);
+//
+//				CardDto blackjack = new CardDto();
+//				blackjack.setCardSuit(suit);
+//				blackjack.setDenomination(value);
+//				blackjack.setValue(intValue);
+//				deckList.add(blackjack);
 
 			} 
 		}
