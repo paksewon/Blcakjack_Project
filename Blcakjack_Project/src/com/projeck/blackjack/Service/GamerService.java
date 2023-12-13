@@ -2,6 +2,7 @@ package com.projeck.blackjack.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 import com.projeck.blackjack.model.CardDto;
 import com.projeck.blackjack.utils.Line;
@@ -9,24 +10,28 @@ import com.projeck.blackjack.utils.Line;
 public class GamerService {
 
 	// 각 플레이어가 받은 카드를 저장할 List
+	private Scanner scan = null;
 	List<CardDto> myCardList;
 
-	// deck에서 한장씩 플레이어에게 전달할 카드들
-	List<CardDto> pubCardList;
+	// deck 에서 한장씩 플레이어에게 전달할 카드들
+	List<CardDto> pubCardList; // 딜러는안보여주고 고니꺼는 보여줘야한다
 	String playerName;
 
 	// 플레이어 이름을 지정하지 않고 카드만 받은 경우에 두번째 있는 생성자 생성
 	// 플레이어 이름이 없는 상태로 생성이되면 요걸 딜러로 실행하겠다
 	public GamerService(List<CardDto> cardList) {
-		this(cardList, "딜러");
+		this(cardList, "Dealer");
+		
+		this.scan = new Scanner(System.in);
+
 	}
 //	CardDto cardDto = new CardDto();
 //	CardService cardService = new CardService();
 
 	public GamerService(List<CardDto> cardList, String playName) { // 연결시켜주기
-		this.myCardList = new ArrayList<CardDto>(); // myCardLsit는 직접생성해줄것이다
-		this.pubCardList = cardList;
-		this.playerName = playName;
+		myCardList = new ArrayList<CardDto>(); // myCardLsit는 직접생성해줄것이다
+		pubCardList = cardList;
+		playerName = playName;
 //		List<CardDto>dealerHand = new ArrayList<CardDto>();
 //		List<CardDto>plyerHand = new ArrayList<CardDto>();
 	}
@@ -42,9 +47,9 @@ public class GamerService {
 	
 	// 각 선수들이 hit 를 했을때 수행할 method
 	public void hit() {
-		if(this.playerName.equals("딜러") && this.sumValue() > 16) { // 딜러규칙 : 16이상이면 hit 금지
-			System.out.println("딜러점수 : " + this.sumValue());
-			System.out.println("딜러 Hit 금지!!");
+		if(playerName.equals("Dealer") && sumValue() > 16) { // 딜러규칙 : 16이상이면 hit 금지
+			System.out.println("Dealer 점수 : " + sumValue());
+			System.out.println("Dealer Hit 금지!!");
 		} else {
 			// 받은 카드를 내 카드 리스트에 추가
 			myCardList.add(pubCardList.get(0));
@@ -62,7 +67,7 @@ public class GamerService {
 			System.out.println(dto);
 		}
 		Line.sLine(50);
-		System.out.println("현재점수 : " + this.sumValue());
+		System.out.println("현재점수 : " + sumValue());
 	}
 
 	

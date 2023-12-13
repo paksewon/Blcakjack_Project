@@ -19,6 +19,7 @@ public class CardService {
 	};
 	
 	private List<CardDto> deckList;
+	
  
 	public CardService() {
 		this.deckList = new ArrayList<CardDto>();
@@ -27,7 +28,7 @@ public class CardService {
 	public List<CardDto> getDeck() { // 반복문을 돌리는 과정에서 셔플을 돌리면 어떻게 될까?	
 		int Size = deckList.size();
 		for(int i = 0; i < Size; i++) {
-			Collections.shuffle(this.deckList);
+			Collections.shuffle(this.deckList); // 셔플안에다가 만들어논 카드덱리스트를 넣는다
 		}
 		for(CardDto dto : deckList) {
 			Collections.shuffle(this.deckList);
@@ -35,7 +36,7 @@ public class CardService {
 		return this.deckList;
 	}
 
-	public void makeDeck() {
+	public void makeDeck() { // 카드 점수 맥이는 곳, 52장
 		String[] suits = suit.split(",");
 		String[] values = value.split(",");
 		for (String suit : arrSuit) { // 52번 반복루트
@@ -64,8 +65,8 @@ public class CardService {
 				CardDto dto = new CardDto();
 				dto.setCardSuit(suit);
 				dto.setDenomination(value);
-				dto.setValue(intValue); // int 밸루 값
-				deckList.add(dto);
+				dto.setValue(intValue); // int 밸루 값, int 밸류 점수
+				deckList.add(dto); // 댁리스트에 추가
 				
 				
 //				Collections.shuffle(deckList);

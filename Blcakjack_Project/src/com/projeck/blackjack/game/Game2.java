@@ -15,25 +15,44 @@ public class Game2 {
 		List<CardDto> deckList = cs.getDeck();
 	
 		// 플레이어가 두명이라 가정
-		GamerService 딜러 = new GamerService(deckList);
-		GamerService 고니 = new GamerService(deckList, "고니");
+		GamerService Dealer = new GamerService(deckList);
+		GamerService Player = new GamerService(deckList, "Player");
 	
-		// 이제 게임 시작 hit 시작
-		딜러.hit();
-		고니.hit();
+		// 이제 게임 시작 hit 시작 
+		Dealer.hit();
+		Player.hit();
 		
-		딜러.hit();
-		고니.hit();
+		Dealer.hit();
+		Player.hit();
 		
 		// 17 미만이면 딜러는 한번더 hit, 그렇지 않으면 고니가 hit
-		if(딜러.sumValue() < 17) 딜러.hit();
-		고니.hit();
+		while(true) {
+			System.out.println("딜러 합이 17 미만 hit");
+			
+			if(Dealer.sumValue() < 17) Dealer.hit();
+			break;
+		}
 		
-		if(딜러.sumValue() < 17) 딜러.hit();
-		고니.hit();
+//		고니.hit();
 		
-		if(딜러.sumValue() < 17) 딜러.hit();
-		고니.hit();
+//		sumValue
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+//		if(딜러.sumValue() < 17) 딜러.hit();
+//		고니.hit();
+		
+//		if(딜러.sumValue() < 17) 딜러.hit();
+//		고니.hit();
+		
 		
 	
 	}
