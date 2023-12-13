@@ -57,14 +57,16 @@ public class CardService {
 					if (value.equals("A")) {
 						intValue = 1;
 					} else
-						intValue = 10; // 나머지 밸류는 10으로 세팅
+						intValue = 10; // 나머지 밸류는(JKQ) 10으로 세팅
 
 				}
 				
 				CardDto dto = new CardDto();
 				dto.setCardSuit(suit);
-				dto.setDenomination(value);// int 밸루 값
-				dto.setValue(intValue);
+				dto.setDenomination(value);
+				dto.setValue(intValue); // int 밸루 값
+				deckList.add(dto);
+				
 				
 //				Collections.shuffle(deckList);
 //
