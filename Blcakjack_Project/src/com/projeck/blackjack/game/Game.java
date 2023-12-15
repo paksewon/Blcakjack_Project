@@ -11,7 +11,7 @@ public class Game {
 		CardDto black = new CardDto();
 		
 		card.makeDeck();
-		List<CardDto> deckList = card.getDeck();
+		List<CardDto> deckList = card.getDeck();  // 겟으로부터 리스크를 가져온다
 		
 //		for(BlackjackDto dto : deckList) {
 //			System.out.println(dto);
