@@ -7,14 +7,7 @@ public class CardDto {
 	private String cardSuit; // suit 라는 변수를 문자열로 선언 카드 모양 Suit
 	private int value; // 실제로 가지는 값을 value 로
 
-	public int getValue() {
-		return value;
-	}
-
-	public void setValue(int value) {
-		this.value = value;
-	}
-
+	// 겟터와셋터 만들어주기
 	public String getCardDeck() {
 		return cardDeck;
 	}
@@ -39,8 +32,49 @@ public class CardDto {
 		this.cardSuit = cardSuit;
 	}
 
+	public int getValue() {
+		return value;
+	}
+
+	public void setValue(int value) {
+		this.value = value;
+	}
+
 	@Override
 	public String toString() {
 		return "[숫자 = " + denomination + ", 패턴 = " + cardSuit + ", 카드 = " + value + cardSuit + "]";
 	}
 }
+
+//	public int getValue() {
+//		return value;
+//	}
+//
+//	public void setValue(int value) {
+//		this.value = value;
+//	}
+//
+//	public String getCardDeck() {
+//		return cardDeck;
+//	}
+//
+//	public void setCardDeck(String cardDeck) {
+//		this.cardDeck = cardDeck;
+//	}
+//
+//	public String getDenomination() {
+//		return denomination;
+//	}
+//
+//	public void setDenomination(String denomination) {
+//		this.denomination = denomination;
+//	}
+//
+//	public String getCardSuit() {
+//		return cardSuit;
+//	}
+//
+//	public void setCardSuit(String cardSuit) {
+//		this.cardSuit = cardSuit;
+//	}
+//

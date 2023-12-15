@@ -12,7 +12,6 @@ public class GamerService {
 
 	// 각 플레이어가 받은 카드를 저장할 List
 	List<CardDto> myCardList;
-//	private Scanner scan = null;
 
 	// deck 에서 한장씩 플레이어에게 전달할 카드들
 	List<CardDto> pubCardList; 
@@ -24,7 +23,6 @@ public class GamerService {
 		this(cardList, "Dealer"); 
 		// 플레이어 이름을 지정하지 않은 상태로 덱크만 받은 경우에 이 생성자로 호출 이름 을 딜러로 설정
 		// 플레이어 이름이 없는 상태로 생성이 되면 이걸 딜러로 쓰겠다 라는 생성자 호출
-//		this.scan = new Scanner(System.in);
 	}
 //	CardDto cardDto = new CardDto();
 //	CardService cardService = new CardService();
@@ -56,12 +54,13 @@ public class GamerService {
 //					System.out.println("정상적인 값 입력 바람");
 //					System.out.printf("입력한 값 : (%s)\n", str);
 //					continue;
+		
 		// 플레이어 이름이 딜러이고 점수가 16보다 크면 점수 보여주고 딜러 히트 금지 표시
 		if(playerName.equals("Dealer") && sumValue() > 16) { // 딜러규칙 : 16이상이면 hit 금지
 			System.out.println("Dealer 점수 : " + sumValue());
 			System.out.println("Dealer Hit 금지!!");
 		} else { // 그렇지 않으면 한장 받는다
-			// 받은 카드를 내 카드 리스트에 추가
+			// 받은 카드를 내 카드 리스트에 추가, 히트가 실행될때마다 퍼블리댁크로부터 한장씩받아서 마이 댁크리스트에 추가 할것이다
 			myCardList.add(pubCardList.get(0));
 		
 			// 받을 카드에서 첫 번째 1장을 제외 
